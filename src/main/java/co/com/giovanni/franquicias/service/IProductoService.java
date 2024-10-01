@@ -55,4 +55,14 @@ public interface IProductoService {
      * @return List<ProductoResponseDTO>
      */
     List<ProductoResponseDTO> obtenerProductosMayorStockSucursal(Long idFranquicia);
+
+    /**
+     * Metodo en cargado de modificar un Producto campo nombre
+     * @author GIOVANNI
+     * @param idProducto
+     * @param nombre
+     * @since 2024-09-30
+     * @return void
+     */
+    void modificarNombre(Long idProducto, String nombre);
 }

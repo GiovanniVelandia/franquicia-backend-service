@@ -4,10 +4,8 @@ import co.com.giovanni.franquicias.dto.SucursalDTO;
 import co.com.giovanni.franquicias.service.ISucursalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * La clase SucursalController es responsable de manejar las solicitudes HTTP relacionadas con los sucursales.
@@ -33,5 +31,21 @@ public class SucursalController {
     public void saveSucursal(@RequestBody SucursalDTO sucursalDTO) {
         log.info("saveSucursal(SucursalDTO)");
         iSucursalService.saveSucursal(sucursalDTO);
+    }
+
+    /**
+     * Metodo en cargado de modificar el stock de un Sucursal campo nombre
+     * @author GIOVANNI
+     * @param idSucursal
+     * @param nombre
+     * @since 2024-09-30
+     * @return String
+     */
+    @PatchMapping("/{idSucursal}/nombre")
+    public ResponseEntity<String> modificarNombre(@PathVariable Integer idSucursal,
+                                                  @RequestParam String nombre) {
+        log.info("modificarNombre(Long, String)");
+        iSucursalService.modificarNombre(idSucursal, nombre);
+        return ResponseEntity.ok("Franquicia modificado exitosamente");
     }
 }

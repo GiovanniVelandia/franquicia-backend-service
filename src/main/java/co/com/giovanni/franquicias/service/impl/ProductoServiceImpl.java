@@ -102,4 +102,21 @@ public class ProductoServiceImpl implements IProductoService {
                         .build())
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void modificarNombre(Long idProducto, String nombre) {
+        log.info("modificarNombre(Long, String)");
+
+        Optional<Producto> producto = iProductoRepository.findById(idProducto);
+
+        producto.ifPresentOrElse(
+                p -> {
+                    p.setNombre(nombre);
+                    iProductoRepository.save(p);
+                },
+                () -> {
+                    throw new EntityNotFoundException("Producto no encontrado");
+                }
+        );
+    }
 }

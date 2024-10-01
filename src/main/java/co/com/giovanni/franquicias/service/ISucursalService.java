@@ -17,4 +17,14 @@ public interface ISucursalService {
      * @return void
      */
     void saveSucursal(SucursalDTO sucursalDTO);
+
+    /**
+     * Metodo en cargado de modificar un Sucursal campo nombre
+     * @author GIOVANNI
+     * @param idSucursal
+     * @param nombre
+     * @since 2024-09-30
+     * @return void
+     */
+    void modificarNombre(Integer idSucursal, String nombre);
 }

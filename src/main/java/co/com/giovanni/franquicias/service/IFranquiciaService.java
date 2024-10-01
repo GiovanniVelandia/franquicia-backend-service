@@ -17,4 +17,14 @@ public interface IFranquiciaService {
      * @return void
      */
     void saveFranquicia(FranquiciaDTO franquiciaDTO);
+
+    /**
+     * Metodo en cargado de modificar un Franquicia
+     * @author GIOVANNI
+     * @param idFranquicia
+     * @param nombre
+     * @since 2024-09-30
+     * @return void
+     */
+    void modificarNombre(Long idFranquicia, String nombre);
 }

@@ -92,4 +92,20 @@ public class ProductoController {
         log.info("obtenerProductosMayorStockSucursal(Long)");
         return ResponseEntity.ok(iProductoService.obtenerProductosMayorStockSucursal(idFranquicia));
     }
+
+    /**
+     * Metodo en cargado de modificar el stock de un producto campo nombre
+     * @author GIOVANNI
+     * @param idProducto
+     * @param nombre
+     * @since 2024-09-30
+     * @return String
+     */
+    @PatchMapping("/{idProducto}/nombre")
+    public ResponseEntity<String> modificarNombre(@PathVariable Long idProducto,
+                                                 @RequestParam String nombre) {
+        log.info("modificarNombre(Long, String)");
+        iProductoService.modificarNombre(idProducto, nombre);
+        return ResponseEntity.ok("Producto modificado exitosamente");
+    }
 }
